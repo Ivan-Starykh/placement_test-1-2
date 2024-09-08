@@ -7,12 +7,12 @@ const questionsContainer = document.getElementById('questions-container');
 // Test questions with different answer options
 const questions = [
 	{
-			img: '/img/1.png', 
+			img: 'img/1.png', 
 			answers: ["have a music lesson", "play basketball", "do gymnastics", "go toschool"],
 			correct: "have a music lesson"
 	},
 	{
-			img: '/img/2.png', 
+			img: 'img/2.png', 
 			answers: ["no it is", "yes it is", "no it isn't", "yes it isn't"],
 			correct: "no it isn't"
 	},
