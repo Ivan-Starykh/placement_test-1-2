@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Placement Test 1-2 класс</h1>
+        <div id="timer">Осталось времени: 20:00</div>
+
+        <form id="test-form">
+            <div class="input-group">
+                <label for="fullName">Фамилия Имя Отчество</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">Номер телефона родителя</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <!-- Questions -->
+            <div id="questions-container"></div>
+
+            <button type="submit">отправить</button>
+        </form>
+    </div>
+
+    <!-- Modal Popup -->
+    <div id="timeout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p>Время закончилось!</p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

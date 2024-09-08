@@ -1,0 +1,175 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #f4f4f4;
+	overflow-x: hidden;
+}
+
+.container {
+	width: 100%;
+	max-width: 500px;
+	padding: 20px;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+
+h1 {
+	text-align: center;
+	font-size: 1.5em; /* Уменьшаем шрифт для лучшей адаптивности */
+	margin-bottom: 10px;
+	word-wrap: break-word; /* Разрешаем перенос слов, если заголовок слишком длинный */
+}
+
+.input-group {
+	margin-bottom: 15px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="tel"] {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+#timer {
+	text-align: center;
+	font-size: 1.2em;
+	margin-bottom: 20px;
+	word-wrap: break-word; /* Добавляем перенос слов */
+}
+
+button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+button:hover {
+	background-color: #45a049;
+}
+
+.hidden {
+	display: none;
+}
+
+/* Modal Styles */
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal.show {
+	display: flex;
+}
+
+.modal-content {
+	background-color: white;
+	padding: 20px;
+	border-radius: 5px;
+	position: relative;
+	text-align: center;
+}
+
+.close-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 1.5em;
+	cursor: pointer;
+}
+
+.close-button:hover {
+	color: red;
+}
+
+.question img {
+	max-width: 100%; /* Изображение не будет превышать ширину контейнера */
+	height: auto; /* Высота будет изменяться пропорционально */
+	display: block;
+	margin: 0 auto; /* Центрирование изображения */
+	margin-bottom: 15px;
+}
+
+/* Стили для контейнера с вопросами */
+.question {
+	margin-bottom: 20px;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap; /* Разрешает кнопкам переноситься на новую строку */
+	justify-content: center; Центрирование кнопок
+}
+
+/* Стили для label, чтобы они выглядели как кнопки */
+.question label {
+	display: inline-block;
+	background-color: #f0f0f0;
+	border: 2px solid #007bff;
+	color: #007bff;
+	padding: 10px 0px;
+	margin: 10px;
+	border-radius: 8px;
+	font-size: 1.2em;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
+	width: 50%;
+	/* max-width: 200px; */
+	text-align: center;
+	box-sizing: border-box;
+}
+
+/* Меняем цвет при наведении */
+.question label:hover {
+	background-color: #007bff;
+	color: #fff;
+}
+
+/* Скрываем радиокнопки */
+.question input[type="radio"] {
+	display: none;
+}
+
+/* Если радиокнопка выбрана, меняем цвет кнопки */
+.question input[type="radio"]:checked + label {
+	background-color: #007bff;
+	color: white;
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 1440px) {
+	.question label {
+			width: 43%; /* Для мобильных устройств, кнопки будут по 2 на строку */
+			font-size: 1em;
+		}
+}
+
+@media (max-width: 370px) {
+	.question label {
+			width: 80%; /* Для мобильных устройств, кнопки будут по 2 на строку */
+	}
+}
