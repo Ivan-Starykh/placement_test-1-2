@@ -143,34 +143,59 @@ function submitFormData() {
   const score = calculateScore();
   const timeSpent = 20 * 60 - timeLeft;
   const data = {
-    fullName, 
-    phone, 
-    score, 
-    timeSpent, 
-    date: new Date().toLocaleString(), 
-    answers: Array.from(formData.entries()).filter(([key]) => key.startsWith('question'))
+    fullName,
+    phone,
+    score,
+    timeSpent,
+    date: new Date().toLocaleString(),
+    answers: Array.from(formData.entries()).filter(([key]) => key.startsWith('question')),
   };
 
-  fetch('https://script.google.com/macros/s/AKfycbzKhJIryuBZUlYKL45lXlcAd1b8KyXOBEUcLcCmbaL_s-OUcWdg7QVq_62IDTr2NBpzZQ/exec', {
+  fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
     body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+    },
   })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Success:', data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+    .then(response => response.json())
+    .then(result => {
+      if (result.type === 'success') {
+        // Показать модальное окно об успешной отправке
+        const successModal = document.getElementById('success-modal');
+        successModal.style.display = 'block';
+
+        // Скрыть модальное окно по нажатию на кнопку закрытия
+        const closeButton = successModal.querySelector('.close-button');
+        closeButton.addEventListener('click', () => {
+          successModal.style.display = 'none';
+        });
+      } else {
+        console.error('Ошибка отправки:', result.errors);
+      }
+    })
+    .catch(error => {
+      console.error('Ошибка:', error);
+    });
 }
 
+window.onclick = function(event) {
+  const successModal = document.getElementById('success-modal');
+  if (event.target == successModal) {
+    successModal.style.display = 'none';
+  }
+};
 
 // Close the modal when clicking on the close button
 closeButton.addEventListener('click', () => {
-    timeoutModal.classList.remove('show'); // Hide the modal
+	timeoutModal.classList.remove('show'); // Hide the modal
+});
+
+// Close the modal when clicking outside of the modal content
+window.addEventListener('click', (event) => {
+if (event.target == timeoutModal) {
+	timeoutModal.classList.remove('show'); // Hide the modal
+}
 });
 
 // Form submit event
