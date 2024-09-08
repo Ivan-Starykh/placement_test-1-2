@@ -151,7 +151,7 @@ function submitFormData() {
     answers: Array.from(formData.entries()).filter(([key]) => key.startsWith('question')),
   };
 
-  fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzKhJIryuBZUlYKL45lXlcAd1b8KyXOBEUcLcCmbaL_s-OUcWdg7QVq_62IDTr2NBpzZQ/exec', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
